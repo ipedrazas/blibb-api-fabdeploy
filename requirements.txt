@@ -1,3 +1,1 @@
-fabric
-jinja2
-django-fabdeploy-plus
+django-fabdeploy-plus==0.4.0
