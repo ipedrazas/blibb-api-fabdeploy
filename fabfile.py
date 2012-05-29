@@ -99,7 +99,7 @@ def deploy():
     virtualenv.make_relocatable.run()
 
     run('mkdir %(release_path)s/logs' % env.conf)
-    run('chmod 0750 %(release_path)s/logs' % env.conf)
+    run('chmod 0770 %(release_path)s/logs' % env.conf)
 
     release.activate.run()
     gunicorn.reload_with_supervisor.run()
