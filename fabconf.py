@@ -8,7 +8,7 @@ DIRNAME = os.path.dirname(__file__)
 
 class BaseConf(DefaultConf):
     
-    server_admin = 'blibb@blibb.co'
+    server_admin = 'blibb@blibb.net'
     repo_origin = 'https://ipedrazas@github.com/ipedrazas/blibb-api.git'
 
     supervisor_programs = ['gunicorn', 'redis_db', 'zmq_worker', 'zmq_twitter']
@@ -27,14 +27,14 @@ class StagingConf(BaseConf):
 
 
 class ProdConf(BaseConf):
+    server_name = 'api.blibb.net'
+    sudo_user = 'fabdeploy'
+    address = 'blibb_api@blibb.co'
+
+class DevConf(BaseConf):
     server_name = 'api.blibb.it'
     sudo_user = 'fabdeploy'
     address = 'blibb_api@blibb.it'
-
-class DevConf(BaseConf):
-    server_name = 'api.blibb.es'
-    sudo_user = 'fabdeploy'
-    address = 'blibb_api@blibb.es'
 
 
 class LocalhostConf(BaseConf):

@@ -102,4 +102,6 @@ def deploy():
     run('chmod 0770 %(release_path)s/logs' % env.conf)
 
     release.activate.run()
+    supervisor.stop.run()
+    supervisor.start.run()
     gunicorn.reload_with_supervisor.run()
