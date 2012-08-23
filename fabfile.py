@@ -21,14 +21,14 @@ def redis_push_configs():
 def zmq_install():
     system.package_install.run(packages='libtool autoconf automake uuid-dev')
     with cd('/tmp'):
-        run('wget http://download.zeromq.org/zeromq-2.2.0.tar.gz')
-        run('tar -xzf zeromq-2.2.0.tar.gz')
-        with cd('zeromq-2.2.0'):
+        run('wget http://download.zeromq.org/zeromq-3.2.0-rc1.tar.gz')
+        run('tar -xzf zeromq-3.2.0-rc1.tar.gz')
+        with cd('zeromq-3.2.0-rc1'):
             run('./configure')
             run('make')
             sudo('make install')
             sudo('ldconfig')
-        run('rm -rf zeromq-2.2.0')
+        run('rm -rf zeromq-3.2.0-rc1')
 
 
 @task
@@ -98,8 +98,8 @@ def deploy():
     virtualenv.pip_install.run(app='gunicorn')
     virtualenv.make_relocatable.run()
 
-    run('mkdir %(release_path)s/logs' % env.conf)
-    run('chmod 0770 %(release_path)s/logs' % env.conf)
+    # run('mkdir %(release_path)s/logs' % env.conf)
+    # run('chmod 0770 %(release_path)s/logs' % env.conf)
 
     release.activate.run()
     supervisor.stop.run()
