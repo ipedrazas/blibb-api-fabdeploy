@@ -107,14 +107,11 @@ def deploy():
     supervisor.stop.run()
     supervisor.start.run()
     gunicorn.reload_with_supervisor.run()
-    # send oi to notify deployment
+    #send oi to notify deployment
     push_oi()
 
 
 def push_oi():
-    # curl -k -d "login_key=4c827accb09c75c61b3865dde64a88d2f94e41b0" https://api.blibb.net/ois/50632a8652d4df1b53000000/push
     req = requests.post("http://api.blibb.net/ois/506f4ec852d4df6edd000001/push",
-                        headers={'Content-Type': 'application/json'},
-                        data=json.dumps({'login_key': 'b71f3994780c9da7471bcca34cb034f055016f07'}),
-                        timeout=5)
-    return req.content
+                        data={'login_key': 'b71f3994780c9da7471bcca34cb034f055016f07'})
+    print req.content
