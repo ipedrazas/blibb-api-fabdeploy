@@ -107,7 +107,7 @@ def deploy():
     supervisor.stop.run()
     supervisor.start.run()
     gunicorn.reload_with_supervisor.run()
-    #send oi to notify deployment
+    # send oi to notify deployment
     push_oi()
 
 
