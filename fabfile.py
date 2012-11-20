@@ -112,6 +112,9 @@ def deploy():
 
 
 def push_oi():
-    req = requests.post("http://api.blibb.net/ois/506f4ec852d4df6edd000001/push",
-                        data={'login_key': 'b71f3994780c9da7471bcca34cb034f055016f07'})
+    url = "http://api.blibb.net/ois/50a3a80552d4df76b8000000/push"
+    login_key = 'b7d8ff2812997ed105cfdb04c6067d14ce237826'
+    print "curl -d login_key=" + login_key + " " + url
+    req = requests.post(url, data={'login_key': login_key})
     print req.content
+ 
