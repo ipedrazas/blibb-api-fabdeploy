@@ -8,16 +8,13 @@ DIRNAME = os.path.dirname(__file__)
 
 class BaseConf(DefaultConf):
 
-    server_admin = 'blibb@blibb.net'
+    server_admin = 'info@getoi.com'
     repo_origin = 'https://ipedrazas@github.com/ipedrazas/blibb-api.git'
 
-    supervisor_programs = ['gunicorn', 'redis_db', 'zmq_worker', 'zmq_twitter', 'zmq_ducksboard', 'zmq_mail']
+    supervisor_programs = ['gunicorn', 'zmq_worker', 'zmq_twitter', 'zmq_ducksboard', 'zmq_mail']
 
     django_dir = 'API'
     gunicorn_app = 'API:app'
-
-    redis_path = '%(var_path)s/redis'
-    redis_db_port = 6379
 
 
 class StagingConf(BaseConf):
