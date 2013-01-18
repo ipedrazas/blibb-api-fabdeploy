@@ -14,10 +14,9 @@ Create ``fabdeploy`` user on target host::
 
     fab fabd.default_conf:address=user@host,sudo_user=user fabd.create_user
 
-For example, to create ``fabdeploy`` user on vmihailenco@localhost you
-have to use::
+For example, to create ``fabdeploy`` user on ivan@getoi.com you have to use (where ivan is the user with sudo access):
 
-    fab fabd.default_conf:address=vmihailenco@localhost,sudo_user=vmihailenco fabd.create_user
+    fab fabd.default_conf:address=ivan@oioi.me,sudo_user=ivan fabd.create_user
 
 Create user for the project:
 

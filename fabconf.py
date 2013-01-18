@@ -27,15 +27,19 @@ class StagingConf(BaseConf):
 
 
 class ProdConf(BaseConf):
-    server_name = 'api.blibb.net'
+    server_name = 'getoi.com'
     sudo_user = 'fabdeploy'
-    address = 'blibb_api@blibb.co'
+    address = 'oi_api@getoi.com'
 
+class NewConf(BaseConf):
+    server_name = 'getoi.com'
+    sudo_user = 'fabdeploy'
+    address = 'oi_api@getoi.com'
 
 class DevConf(BaseConf):
-    server_name = 'api.blibb.it'
+    server_name = 'api.oioi.es'
     sudo_user = 'fabdeploy'
-    address = 'blibb_api@blibb.it'
+    address = 'blibb_api@oioi.es'
 
 
 class LocalhostConf(BaseConf):
