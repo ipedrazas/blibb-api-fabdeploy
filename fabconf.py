@@ -11,7 +11,7 @@ class BaseConf(DefaultConf):
     server_admin = 'blibb@blibb.net'
     repo_origin = 'https://ipedrazas@github.com/ipedrazas/blibb-api.git'
 
-    supervisor_programs = ['gunicorn', 'redis_db', 'zmq_worker', 'zmq_twitter', 'zmq_ducksboard']
+    supervisor_programs = ['gunicorn', 'redis_db', 'zmq_worker', 'zmq_twitter', 'zmq_ducksboard', 'zmq_mail']
 
     django_dir = 'API'
     gunicorn_app = 'API:app'
