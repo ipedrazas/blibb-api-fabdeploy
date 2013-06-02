@@ -32,6 +32,6 @@ Setup configs with::
 
 Deploy code::
 
-    fab fabd.conf:deploy
+    fab fabd.conf:prod deploy
 
 Inspect available configs in ``fabconf.py``.

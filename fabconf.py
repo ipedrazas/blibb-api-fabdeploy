@@ -13,7 +13,7 @@ class BaseConf(DefaultConf):
 
     supervisor_programs = ['gunicorn', 'zmq_worker', 'zmq_twitter', 'zmq_ducksboard', 'zmq_mail']
 
-    django_dir = 'API'
+    django_dir = '.'
     gunicorn_app = 'API:app'
 
 
@@ -24,7 +24,7 @@ class StagingConf(BaseConf):
 
 
 class ProdConf(BaseConf):
-    server_name = 'getoi.com'
+    server_name = 'api.oioi.me'
     sudo_user = 'fabdeploy'
     address = 'oi_api@getoi.com'
 

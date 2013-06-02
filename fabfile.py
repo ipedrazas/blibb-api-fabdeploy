@@ -23,14 +23,14 @@ def redis_push_configs():
 def zmq_install():
     system.package_install.run(packages='libtool autoconf automake uuid-dev')
     with cd('/tmp'):
-        run('wget http://download.zeromq.org/zeromq-3.2.1-rc2.tar.gz')
-        run('tar -xzf zeromq-3.2.1-rc2.tar.gz')
-        with cd('zeromq-3.2.1'):
+        run('wget http://download.zeromq.org/zeromq-3.2.3.tar.gz')
+        run('tar -xzf zeromq-3.2.3.tar.gz')
+        with cd('zeromq-3.2.3'):
             run('./configure')
             run('make')
             sudo('make install')
             sudo('ldconfig')
-        run('rm -rf zeromq-3.2.1')
+        run('rm -rf zeromq-3.2.3')
 
 
 @task
@@ -46,18 +46,18 @@ def mongo_install():
 
 @task
 def install():
-    # fabd.mkdirs.run()
+    fabd.mkdirs.run()
 
-    # # system.setup_backports.run()
+    # system.setup_backports.run()
 
-    # system.package_install.run(
-    #     packages='build-essential python-dev python-software-properties git-core')
-    # pip.install_pip.run()
+    system.package_install.run(
+        packages='build-essential python-dev python-software-properties git-core')
+    pip.install_pip.run()
 
-    # zmq_install()
+    zmq_install()
     # mongo_install()
 
-    # # redis.add_ppa.run()
+    # redis.add_ppa.run()
     # redis.install.run()
     # with settings(warn_only=True):
     #     redis.remove_init.run()
@@ -66,8 +66,8 @@ def install():
     # nginx.add_ppa.run()
     # nginx.install.run()
 
-    for app in ['supervisor', 'gunicorn']:
-        pip.install.run(app=app)
+    # for app in ['supervisor', 'gunicorn']:
+    #     pip.install.run(app=app)
 
 
 @task
@@ -113,7 +113,7 @@ def deploy():
 
 def push_oi():
     url = "http://api.oioi.me/ois/50a3a80552d4df76b8000000/push"
-    login_key = '529d51cf1e45fbc725d68be23892919d498e8ff3'
+    login_key = '66562d8f16a682ebddbdacff390890f38c3ce645'
     print "curl -d login_key=" + login_key + " " + url
     req = requests.post(url, data={'login_key': login_key})
     print req.content
